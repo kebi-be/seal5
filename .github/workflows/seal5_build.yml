@@ -54,9 +54,9 @@ jobs:
   trigger_etiss_build:
     runs-on: ubuntu-latest
     steps:
-      name: Trigger ETISS Build
-        - uses: peter-evans/repository-dispatch@v3
-          with:
+      - name: Trigger ETISS Build
+        uses: peter-evans/repository-dispatch@v3
+        with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: kebi-be/etiss 
           event-type: my-event
