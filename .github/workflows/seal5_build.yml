@@ -54,10 +54,12 @@ jobs:
   trigger_etiss_build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Check Out Module
+      uses: actions/checkout@v3
       with:
          submodules: recursive
-    - uses: actions/upload-artifact@v4
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
       with:
         name: demo-export
         path: $GITHUB-WORKSPACE/
