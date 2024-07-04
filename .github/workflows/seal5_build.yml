@@ -54,13 +54,22 @@ jobs:
   trigger_etiss_build:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger ETISS Build
-        uses: peter-evans/repository-dispatch@v3
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          repository: kebi-be/etiss 
-          event-type: my-event
-          client-payload: '{"github": ${{ toJson(github) }}}'
+    - uses: actions/checkout@v3
+      with:
+         submodules: recursive
+    - uses: actions/upload-artifact@v4
+      with:
+        name: demo-export
+        path: $GITHUB-WORKSPACE/
+    - name: Trigger ETISS Build
+      uses: peter-evans/repository-dispatch@v3
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        repository: kebi-be/etiss 
+        event-type: my-event
+        client-payload: '{"github": ${{ toJson(github) }}}'
+
+          
             
   demo:
     runs-on: ubuntu-latest
