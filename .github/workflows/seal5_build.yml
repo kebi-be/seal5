@@ -54,8 +54,7 @@ jobs:
   trigger_etiss_build:
     runs-on: ubuntu-latest
     steps:
-    - name: Check Out Module
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
       with:
          submodules: recursive
     - name: Upload artifacts
@@ -69,9 +68,7 @@ jobs:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
         repository: kebi-be/etiss 
         event-type: my-event
-        client-payload: '{"github": ${{ toJson(github) }}}'
-
-          
+        client-payload: '{"github": ${{ toJson(github) }}}'       
             
   demo:
     runs-on: ubuntu-latest
