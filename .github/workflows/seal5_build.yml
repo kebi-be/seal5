@@ -65,7 +65,7 @@ jobs:
    # - name: Trigger ETISS Build
     #  uses: peter-evans/repository-dispatch@v3
      # with:
-      #  token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      #  token: ${{ secrets.REPO_PA_TOKEN }}
        # repository: kebi-be/etiss 
         #event-type: my-event
         #client-payload: '{"github": ${{ toJson(github) }}}'       
