@@ -64,14 +64,14 @@ jobs:
     - name: Download Core-DSL-Extension Artifacts
       uses: actions/download-artifact@v4
       with:
-        name: riscv-core-dsl-files
+        name: riscv-core-dsl-files.zip
         github-token: ${{ secrets.REPO_PA_TOKEN }}
         repository: kebi-be/riscv-coredsl-extensions
        #run-id: 1234
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: demo-export
+        name: seal5-artifacts
         path: $GITHUB-WORKSPACE/
     - name: Trigger ETISS Build
       uses: peter-evans/repository-dispatch@v3
