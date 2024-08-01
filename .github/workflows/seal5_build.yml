@@ -21,31 +21,10 @@
 name: Usage Seal5-Build
 
 on:
-  workflow_dispatch:
-     inputs:
-      script:
-        description: "Script"
-        required: true
-        default: "demo.py"
-      verbose:
-        description: "Verbose (0/1)"
-        required: true
-        default: "0"
-      fast:
-        description: "Fast (0/1)"
-        required: true
-        default: "0"
-      ignore_error:
-        description: "Ignore Errors in TEST stage (0/1)"
-        required: true
-        default: "1"
-      build_config:
-        description: "Build Config (debug/release/...)"
-        required: true
-        default: "release"
   repository_dispatch:
     types: [s4e_cdl_event]
-    inputs:
+  workflow_dispatch:
+     inputs:
       script:
         description: "Script"
         required: true
