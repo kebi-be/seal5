@@ -22,6 +22,8 @@ name: Usage Seal5-Build
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [s4e_cdl_event]
     inputs:
       script:
         description: "Script"
@@ -48,9 +50,7 @@ on:
 #     - main
 # pull_request:
 #   branches:
-#     - main
-  repository_dispatch:
-    types: [s4e_cdl_event]
+#     - main   
 
 jobs:
   trigger_etiss_build:
