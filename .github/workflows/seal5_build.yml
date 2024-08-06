@@ -72,13 +72,13 @@ jobs:
       with:
         name: seal5-artifacts
         path: $GITHUB-WORKSPACE/
-    - name: Trigger ETISS Build
-      uses: peter-evans/repository-dispatch@v3
-      with:
-         token: ${{ secrets.REPO_PA_TOKEN }}
-         repository: kebi-be/etiss_wysiwyng
-         event-type: seal5-event
-         client-payload: '{"github": ${{ toJson(github) }}}'       
+ #   - name: Trigger ETISS Build
+  #    uses: peter-evans/repository-dispatch@v3
+   #   with:
+    #     token: ${{ secrets.REPO_PA_TOKEN }}
+     #    repository: kebi-be/etiss_wysiwyng
+      #   event-type: seal5-event
+       #  client-payload: '{"github": ${{ toJson(github) }}}'       
             
   demo:
     runs-on: ubuntu-latest
