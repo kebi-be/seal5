@@ -62,6 +62,8 @@ jobs:
     - run: echo ${{ github.event.client_payload.run_id }}  " Repo:"  ${{ github.event.client_payload.triggered_by}} 
     - name: Download Core-DSL-Extension Artifacts
       uses: actions/download-artifact@v4
+      # Only download artifacts if Workflow is triggered by Riscv-CoreDSL-Extensions
+      if: ${{ github.event_name == 'repository_dispatch' }}
       with:
         name: riscv-core-dsl-files
         github-token: ${{ secrets.REPO_PA_TOKEN }}
@@ -72,13 +74,16 @@ jobs:
       with:
         name: seal5-artifacts
         path: $GITHUB-WORKSPACE/
- #   - name: Trigger ETISS Build
-  #    uses: peter-evans/repository-dispatch@v3
-   #   with:
-    #     token: ${{ secrets.REPO_PA_TOKEN }}
-     #    repository: kebi-be/etiss_wysiwyng
-      #   event-type: seal5-event
-       #  client-payload: '{"github": ${{ toJson(github) }}}'       
+    - name: Trigger ETISS Build
+    # Only Trigger ETISS if Workflow is NOT triggered by Riscv-CoreDSL-Extensions
+      uses: peter-evans/repository-dispatch@v3
+      if: ${{ github.event_name != 'repository_dispatch' }}    
+      with:
+         token: ${{ secrets.REPO_PA_TOKEN }}
+         repository: kebi-be/etiss_wysiwyng
+         event-type: seal5-event
+         client-payload: '{"triggered_by": "${{ github.repository }}", "run_id": "${{ github.run_id }}"}'
+        # client-payload: '{"github": ${{ toJson(github) }}}'       
             
   demo:
     runs-on: ubuntu-latest
