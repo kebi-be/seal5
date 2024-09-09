@@ -168,6 +168,7 @@ def add_test_cfg(tests_dir: Path):
 
 class Seal5Flow:
     """Seal5 Flow."""
+
     def __init__(
         self, directory: Optional[Path] = None, meta_dir: Optional[Union[str, Path]] = None, name: Optional[str] = None
     ):
