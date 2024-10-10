@@ -17,7 +17,7 @@
 ## limitations under the License.
 ##
 
-# Seal5 demonstration (also serves as end-to-end testj
+# Seal5 demonstration (also serves as end-to-end test)
 name: Usage Seal5-Build
 
 on:
@@ -52,7 +52,7 @@ on:
       build_config:
         description: "Build Config (debug/release/...)"
         required: true
-        default: "release"
+        default: "release_assertions"
       test:
         description: "Run LLVM tests"
         required: true
@@ -103,7 +103,7 @@ jobs:
     - name: Run the demo
       run: |
         source .venv/bin/activate
-        VERBOSE=0 PROGESS=1 CLONE_DEPTH=1 BUILD_CONFIG=release IGNORE_ERROR=1 TEST=1 INSTALL=1 DEPLOY=1 EXPORT=1 DEST=/tmp/seal5_llvm python3 examples/s4e_demo.py
+        VERBOSE=0 PROGESS=1 CLONE_DEPTH=1 BUILD_CONFIG=release_assertions IGNORE_ERROR=1 TEST=1 INSTALL=1 DEPLOY=1 EXPORT=1 DEST=/tmp/seal5_llvm python3 examples/s4e_demo.py
     
     - uses: actions/upload-artifact@v4
       if: "${{ github.event.inputs.export == '1'  ||  github.event_name == 'repository_dispatch' }}"
