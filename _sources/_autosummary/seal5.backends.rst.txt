@@ -13,9 +13,11 @@ seal5.backends
    coredsl2
    llvmir
    patterngen
+   report
    riscv_features
    riscv_gisel_legalizer
    riscv_instr_info
+   riscv_intrinsics
    riscv_isa_info
    riscv_register_info
    viewer_seal5

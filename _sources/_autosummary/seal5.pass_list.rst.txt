@@ -8,6 +8,7 @@ seal5.pass\_list
 
    .. autosummary::
    
+      check_pattern_support
       collect_immediate_operands
       collect_operand_types
       collect_register_operands
@@ -16,6 +17,7 @@ seal5.pass\_list
       convert_llvmir_to_gmir
       convert_models
       detect_behavior_constraints
+      detect_imm_leafs
       detect_inouts
       detect_registers
       detect_side_effects
@@ -28,11 +30,13 @@ seal5.pass\_list
       gen_riscv_features_patch
       gen_riscv_gisel_legalizer_patch
       gen_riscv_instr_info_patch
+      gen_riscv_intrinsics
       gen_riscv_isa_info_patch
       gen_riscv_register_info_patch
       gen_seal5_td
       gen_set_td
       infer_types
+      inline_functions
       optimize_model
       pattern_gen_pass
       process_settings
