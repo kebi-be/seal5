@@ -56,12 +56,6 @@ def run(args):
     top_level = pathlib.Path(args.top_level)
     # abs_top_level = top_level.resolve()
 
-	# resolve model paths
-	top_level = pathlib.Path(args.top_level)
-	abs_top_level = top_level.resolve()
-	search_path = abs_top_level.parent.parent
-	model_fname = abs_top_level
-    
     if args.output is None:
         assert top_level.suffix == ".m2isarmodel", "Can not infer file extension."
         temp = str(top_level)
@@ -75,36 +69,26 @@ def run(args):
 
     new_model = {}
 
-	with open(model_fname, 'rb') as f:
-		model_obj: M2Model = pickle.load(f)
-
-	if model_obj.model_version != M2_METAMODEL_VERSION:
-		logger.warning("Loaded model version mismatch")
-
-    if model_obj.models
-        models = model_obj.models
-	start_time = time.strftime("%a, %d %b %Y %H:%M:%S %z", time.localtime())
-
-	# load models
-  #  with open(top_level, "rb") as f:
-   #     # models: "dict[str, arch.CoreDef]" = pickle.load(f)
-    #    sets: "dict[str, arch.InstructionSet]" = pickle.load(f)
+    # load models
+    with open(top_level, "rb") as f:
+        # models: "dict[str, arch.CoreDef]" = pickle.load(f)
+        sets: "dict[str, arch.InstructionSet]" = pickle.load(f)
 
     # preprocess model
-    for core_name, core_def in models.items():
-        logger.info("preprocessing core %s", core_name)
-        process_functions(core_def)
-        process_instructions(core_def)
-        process_attributes(core_def)
+    for set_name, set_def in sets.items():
+        logger.info("preprocessing set %s", set_name)
+        process_functions(set_def)
+        process_instructions(set_def)
+        process_attributes(set_def)
 
-    for core_name, core_def in models.items():
-        logger.info("replacing core %s", core_name)
-        for enc, instr_def in core_def.instructions.items():
+    for set_name, set_def in sets.items():
+        logger.info("replacing set %s", set_name)
+        for enc, instr_def in set_def.instructions.items():
             if args.prefix:
                 instr_def.name = f"{args.prefix.upper()}{instr_def.name}"
                 prefix_ = args.prefix.lower().replace("_", ".")
                 instr_def.mnemonic = f"{prefix_}{instr_def.mnemonic}"
-            core_def.instructions[enc] = seal5_model.Seal5Instruction(
+            set_def.instructions[enc] = seal5_model.Seal5Instruction(
                 instr_def.name,
                 convert_attrs(instr_def.attributes, base=seal5_model.Seal5InstrAttribute),
                 instr_def.encoding,
@@ -114,16 +98,16 @@ def run(args):
                 [],
                 {},
             )
-            core_def.instructions[enc].scalars = instr_def.scalars
-        for func_name, func_def in core_def.functions.items():
+            set_def.instructions[enc].scalars = instr_def.scalars
+        for func_name, func_def in set_def.functions.items():
             func_def.attributes = convert_attrs(func_def.attributes, base=seal5_model.Seal5FunctionAttribute)
-        models[core_name] = seal5_model.Seal5InstructionSet(
-            core_def.name,
-            core_def.extension,
-            core_def.constants,
-            core_def.memories,
-            core_def.functions,
-            core_def.instructions,
+        sets[set_name] = seal5_model.Seal5InstructionSet(
+            set_def.name,
+            set_def.extension,
+            set_def.constants,
+            set_def.memories,
+            set_def.functions,
+            set_def.instructions,
             {},
             {},
             {},
@@ -131,7 +115,7 @@ def run(args):
             {},
         )
 
-    new_model["models"] = models
+    new_model["sets"] = sets
 
     logger.info("dumping model")
     with open(model_path, "wb") as f:
