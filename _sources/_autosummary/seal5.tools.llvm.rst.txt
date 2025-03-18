@@ -11,6 +11,8 @@ seal5.tools.llvm
       build_llvm
       check_llvm_repo
       clone_llvm_repo
+      detect_llvm_imm_types
+      lookup_ccache
       test_llvm
    
    .. rubric:: Classes

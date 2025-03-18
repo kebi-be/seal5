@@ -52,6 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="seal5.logging.html">seal5.logging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.metrics.html">seal5.metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.model.html">seal5.model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seal5.model_utils.html">seal5.model_utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.pass_list.html">seal5.pass_list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.passes.html">seal5.passes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.resources.html">seal5.resources</a></li>
@@ -64,8 +65,11 @@
 <li class="toctree-l3"><a class="reference internal" href="seal5.transform.collect_operand_types.html">seal5.transform.collect_operand_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.transform.collect_raises.html">seal5.transform.collect_raises</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.transform.collect_register_operands.html">seal5.transform.collect_register_operands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seal5.transform.converter.html">seal5.transform.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seal5.transform.detect_calls.html">seal5.transform.detect_calls</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.transform.detect_imm_leafs.html">seal5.transform.detect_imm_leafs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.transform.detect_inouts.html">seal5.transform.detect_inouts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seal5.transform.detect_loops.html">seal5.transform.detect_loops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.transform.detect_registers.html">seal5.transform.detect_registers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.transform.detect_side_effects.html">seal5.transform.detect_side_effects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.transform.drop_unused.html">seal5.transform.drop_unused</a></li>
@@ -87,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="seal5.types.html">seal5.types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.utils.html">seal5.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.version.html">seal5.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seal5.wrapper.html">seal5.wrapper</a></li>
 </ul>
 </li>
 </ul>
@@ -146,55 +151,58 @@ type directly to the <code class="xref py py-class docutils literal notranslate"
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">binary_operation</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">callable_</span></code>(self, context)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">break_</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">concat_operation</span></code>(self, context)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">callable_</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">conditional</span></code>(self, context)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">concat_operation</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">group</span></code>(self, context)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">conditional</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">indexed_reference</span></code>(self, context)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">group</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">int_literal</span></code>(self, context)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">indexed_reference</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">loop</span></code>(self, context)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">int_literal</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">named_reference</span></code>(self, context)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">loop</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_literal</span></code>(self, context)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">named_reference</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">operation</span></code>(self, context)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_literal</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">procedure_call</span></code>(self, context)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">operation</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">return_</span></code>(self, context)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">procedure_call</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">scalar_definition</span></code>(self, context)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">return_</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice_operation</span></code>(self, context)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">scalar_definition</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ternary</span></code>(self, context)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice_operation</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_conv</span></code>(self, context)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ternary</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unary_operation</span></code>(self, context)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_conv</span></code>(self, context)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unary_operation</span></code>(self, context)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>

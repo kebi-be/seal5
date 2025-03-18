@@ -50,6 +50,7 @@
 <li class="toctree-l3"><a class="reference internal" href="seal5.backends.patterngen.html">seal5.backends.patterngen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.backends.report.html">seal5.backends.report</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.backends.riscv_features.html">seal5.backends.riscv_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seal5.backends.riscv_field_types.html">seal5.backends.riscv_field_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.backends.riscv_gisel_legalizer.html">seal5.backends.riscv_gisel_legalizer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seal5.backends.riscv_instr_info.html">seal5.backends.riscv_instr_info</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="seal5.backends.riscv_intrinsics.html">seal5.backends.riscv_intrinsics</a><ul class="current">
@@ -69,6 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="seal5.logging.html">seal5.logging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.metrics.html">seal5.metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.model.html">seal5.model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seal5.model_utils.html">seal5.model_utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.pass_list.html">seal5.pass_list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.passes.html">seal5.passes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.resources.html">seal5.resources</a></li>
@@ -79,6 +81,7 @@
 <li class="toctree-l2"><a class="reference internal" href="seal5.types.html">seal5.types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.utils.html">seal5.utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seal5.version.html">seal5.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seal5.wrapper.html">seal5.wrapper</a></li>
 </ul>
 </li>
 </ul>
@@ -129,10 +132,16 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_target</span></code>(arch, intrinsic)</p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_target_new</span></code>(arch, intrinsic[, prefix, xlen])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ir_type_lookup_new</span></code>(llvm_ty, signed)</p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ir_type_to_pattern</span></code>(ir_type)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ir_type_to_text</span></code>(ir_type)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ir_type_to_text</span></code>(ir_type[, signed, legacy])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code>()</p></td>

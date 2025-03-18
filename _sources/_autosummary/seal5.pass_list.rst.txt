@@ -17,8 +17,10 @@ seal5.pass\_list
       convert_llvmir_to_gmir
       convert_models
       detect_behavior_constraints
+      detect_calls
       detect_imm_leafs
       detect_inouts
+      detect_loops
       detect_registers
       detect_side_effects
       drop_unused
@@ -28,6 +30,7 @@ seal5.pass\_list
       filter_model
       gen_model_td
       gen_riscv_features_patch
+      gen_riscv_field_types_patch
       gen_riscv_gisel_legalizer_patch
       gen_riscv_instr_info_patch
       gen_riscv_intrinsics
